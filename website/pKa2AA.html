@@ -1,17 +1,15 @@
 <!DOCTYPE>
 
 <head>
-
 <title>pH2AminoAcid</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
-
 </head>
-<body>
 
+<body>
 <div class="header-wrap">
 	<div class="logo">
 		<h1>pH to Amino Acid</h1>
-    </div>
+    	</div>
 </div><!---header-wrap-End--->
 
 <div class="menu-wrap">
@@ -28,19 +26,86 @@
 
 <div class="page-wrap">
 <div class="wrap3">  
-  <div class=" leftcol">
-  <div class="panel">
+
   	<div class="title">
   		<h1>Tool: pK to Amino Acid</h1>
 		<br>
 		<br>
-        <span>Take pKa of side chains and return </span>
+        <span>Take pKa of side chains and return amino acid match. Please be sure that chains being added together are closest in value. 
+For example, if my unknown amino acid had a pKa of 2, 4, and 8. The pKas of the chains with 2 and 4 would be added and divided to form the isoelectric point.
+Be sure that your inputs are numbers or the program simply will not work :( </span>
+	<br>
+	<br>
+	<br>
     	</div>
-     
-  </div>
-  </div>
+	<input id="value1" type="text" />
+	<span> + </span>
+	<input id="value2" type="text" />
+	<input type="submit" onclick="output();">
+	<p id="result"> </p>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+
+function output(){
+	var value1 = parseInt(document.getElementById('value1').value);
+	var value2 = parseInt(document.getElementById('value2').value);
+	var result = "";
+	if (value1 < 0) {
+		result = "One of your values is less than 0."
+	}
+	if (value2 < 0) {
+		result = "One of your values is less than 0."
+	}
+	 
+	var pI = (value1 + value2)/2;
+	if (pI < 0){
+		result = "Please check values entered, this is not possible pH cannot be less than 0. Please also ensure inputs were numbers!"
+	}
+	else if (pI < 2.5){
+		result = "Although possible, you are likely not handling an amino acid or there is contamination, the pI is simply too acidic."
+	}
+	else if (pI < 4.7) {
+		result = "Your amino acid is likely glutamic (3.08) or aspartic acid (2.98)."
+	}
+	else if (pI < 5.3) {
+		result = "Your amino acid is likely cysteine (5.15)."
+	}
+	else if (pI < 5.5) {
+		result = "Your amino acid is likely asparagine (5.43)."
+	}
+	else if (pI < 5.7) {
+		result = "Your amino acid is likely glutamine (5.65), threonine (5.6), or tyrosine (5.63)."
+	}
+	else if (pI < 5.8) {
+		result = "Your amino acid is likely methionine (5.71), serine (5.7), or phenylalanine (5.76)."
+	}
+	else if (pI < 5.9){
+		result = "Your amino acid is likely tryptophan (5.88)."
+	}
+	else if (pI < 6.1) {
+		result = "Your amino acid is likely glycine (6.06), isoleucine (6.04), leucine (6.04), or valine (6.02)."
+	}
+	else if (pI < 6.2) {
+		result = "Your amino acid is likely glycine (6.06) or alanine (6.11)."
+	}
+	else if (pI < 6.4){
+		result = "Your amino acid is likely proline (6.3)."
+	}
+	else if (pI < 10){
+		result = "Your amino acid is likely lysine (9.47)."
+	}
+	else if (pI < 11.5){
+		result = "Your amino acid is likely arginine (10.76)."
+	}
+	else {
+		result = "Your pI is super high, please check your numbers again!"
+	}
+    document.getElementById('result').innerHTML = result;
+}
+
+</script>
+</div>
+</div>
   <div class="clearing"></div>
-  </div>	
-  </div>
 </body>
 </html>
