@@ -24,5 +24,5 @@ Week 3:
 - wrote code for pkas (ie the simple version) (2 hours)
 
 Week 4:
--Finished all protonation charts
--Tested isolated program for pKas, put together readme info
+- Finished all protonation charts
+- Tested isolated program for pKas, put together readme info
