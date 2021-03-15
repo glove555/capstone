@@ -1,0 +1,162 @@
+/*-------------------------------------------------
+GLOBALS CLASSES 
+-------------------------------------------------*/
+*{padding:0; margin:0;}
+body{font-family:"Trebuchet MS"; font-size:15px; color:#000000; background:url(../images/bg1.jpg);}
+img{border:none;}
+h1{ font-family:"Trebuchet MS"; font-size:22px; font-weight:normal;}
+h2{ font-family:"Trebuchet MS"; font-size:18px; font-weight:normal;}
+P{ line-height:20px;}
+a{text-decoration:none; color:#ffed71;}
+a:hover{color:#ffffff;}
+/*-------------------------------------------------
+GENERAL CLASSES
+-------------------------------------------------*/
+.clearing { clear:both;}
+.marTop20{margin-top:20px;}
+.marTop30{margin-top:30px;}
+.marTop40{margin-top:40px;}
+.marRight30{margin-right:30px;}
+.bg-bottom{ background:none bottom !important;}
+.panel{}
+.title{}
+.content{}
+.button a{ text-decoration:none; background:url(../images/btn-bg.png) no-repeat; width:90px; height:30px; text-align:center; line-height:30px; display:block;}
+.button a:hover{background:url(../images/btn-bghover.png) no-repeat; color:#04192f;}
+.page-wrap{ width:960px; margin:0 auto; overflow:hidden;}
+.wrap{ width:960px; margin:0 auto; overflow:hidden;}
+.input-newsletter{ background:url(../images/newsletter-bg.png) no-repeat center; width:210px; height:46px; border:none; text-indent:10px; color:#fff;font-family:"Trebuchet MS"; font-size:14px;}
+
+
+/*-------------------------------------------------
+HEADER CLASSES
+-------------------------------------------------*/
+.header-wrap{ background:#000 url(../images/bg2.jpg) repeat-x; height:150px; width:100%; }
+.logo{ width:360px; margin:0 auto;}
+.logo h1{ color:#ffffff; font-size:45px; font-weight: normal; padding-top:70px; padding-bottom:40px;}
+
+/*-------------------------------------------------
+MENU CLASSES
+-------------------------------------------------*/
+.menu-wrap{ overflow:hidden; margin:25px auto 30px auto; width:960px;}
+.menu{ float:left; width:660px;}
+.menu ul li{ list-style:none; float:left; width:100px; text-align:center; line-height:40px; margin-right:20px;}
+.menu ul li a{ text-decoration:none; font-size:15px; font-weight:bold; text-transform:uppercase; text-align:center; display:block; color:#000000;}
+.menu ul li a:hover{ color:#ffffff;  background:url(../images/menu-btn.png) no-repeat;}
+.menu ul li a.active{ background:url(../images/menu-btn.png) no-repeat; color:#ffffff; width:88px; height:40px; color:#ffffff;}
+
+
+
+/*-------------------------------------------------
+BANNER CLASSES
+-------------------------------------------------*/
+.banner-wrap{width:960px; overflow:hidden; margin:0 auto;}
+.banner{ height:430px; background:url(../images/banner-bg.png) no-repeat;}
+.banner .banner-img{ margin:0 auto; padding-top:54px; width:420px;}
+.shadow{ width:950px; height:38px; background:url(../images/shadow.png) no-repeat center; margin-bottom:45px;}
+
+/*-------------------------------------------------
+BOX CLASSES
+-------------------------------------------------*/
+.box{ width:300px; overflow:hidden; float:left;}
+.box .panel .title{ background:url(../images/line-bg.jpg) repeat-x bottom; padding-bottom:25px; margin-bottom:25px;}
+.box .panel .title span{ float:left; margin-right:12px;}
+.box .panel .title h1{ color:#ffffff; font-weight:normal;}
+/*-------------------------------------------------
+WRAP2 CLASSES
+-------------------------------------------------*/
+.wrap2{ width:880px; height:75px; margin:0 auto; overflow:hidden; background:url(../images/box-bg.png) no-repeat; margin-top:60px; margin-bottom:60px; padding:40px 40px;}
+.wrap2 .content{ width:500px; float:left;}
+.icon{ float:left; width:35px; height:60px; margin-right:25px;}
+.wrap2 h1{ color:#001325;}
+.wrap2 .button{ float:right; display:block;}
+.wrap2 .button a{background:url(../images/box-bg2.png) no-repeat;  width:220px; height:60px; font-size:26px; line-height:60px; text-transform:uppercase; padding-left:40px;}
+.wrap2 .button a:hover{ width:220px; height:60px; padding-left:40px; background:url(../images/box-bg2hover.png) no-repeat; color:#ec3600;}
+
+/*-------------------------------------------------
+WRAP3 CLASSES
+-------------------------------------------------*/
+.wrap3{ width:960px; margin:0 auto;}
+.wrap3 .panel{ width:300px; float:left;}
+.wrap3 .panel .title{ padding-bottom:30px;}
+.wrap3 .panel .title h1{ color:#ffffff;}
+.wrap3 .panel .content img{ margin-bottom:20px;}
+.wrap3 .panel .content p a{ color:#ffed71; text-decoration:underline; font-style:italic; padding-top:30px; display:block;}
+.wrap3 .panel .content p a:hover{ color:#fff; text-decoration:none;}
+.wrap3 .panel .content .icon{ float:left; padding-right:20px;}
+.wrap3 .panel .content spna{ text-decoration:underline; color:#ffffff;}
+.wrap3 .panel .content ul{padding-top:30px;}
+.wrap3 .panel .content ul li{ list-style:none; background:url(../images/line-bg.jpg) repeat-x bottom; line-height:38px;}
+.wrap3 .panel .content ul li a{ text-decoration:none; color:#ffffff;}
+.wrap3 .panel .content ul li a:hover{color:#ffed71;}
+
+
+
+/*-------------------------------------------------
+AMINO CLASSES
+-------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 20px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
