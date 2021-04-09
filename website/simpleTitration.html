@@ -1,0 +1,169 @@
+<!DOCTYPE>
+<html>
+<head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div class="header-wrap">
+        <div class="logo">
+            <h1>pH to Amino Acid</h1>
+        </div>
+    </div><!---header-wrap-End--->
+
+    <div class="menu-wrap">
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pKa2AA.html">pKa 2 AA</a></li>
+                <li><a href="aminos.html">Aminos</a></li>
+                <li><a href="simpleTitration.html" class="active">Titration</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div><!---menu-wrap-End--->
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <!--<div class="input">
+            <input id="OH" type="number" />
+            <input id="acid" type="number" />
+            <input id="pka1" type="number">
+            <input id="pka2" type="number">
+            <input id="pka3" type="number" />
+        </div>
+
+     <script>
+      var pka1 = document.getElementById('pka1'),
+      pka2 = document.getElementById('pka2'),
+      pka3 = document.getElementById('pka3'),
+      chart;
+
+
+         chart = Highcharts.chart('container', {
+             chart: {
+                 events: {
+                     load: function () {
+                         var chart = this;
+
+                         setData(chart);
+                     }
+                 }
+             },
+             title: {
+                 text: 'Titration Curve'
+             },
+             plotOptions: {
+                 series: {
+                     pointStart: 0
+                 }
+             },
+             xAxis: {
+                 title: {
+                     text: 'Equivalents OH'
+                 },
+             series: [{
+                 name: 'Unknown amino acid',
+                 data: []
+             }],
+             responsive: {
+                 rules: [{
+                     condition: {
+                         maxWidth: 500
+                     },
+                     chartOptions: {
+                         legend: {
+                             layout: 'horizontal',
+                             align: 'center',
+                             verticalAlign: 'bottom'
+                         }
+                     }
+                 }]
+             }
+         });
+
+    pka1.addEventListener('change', setData.bind(null, chart));
+    pka2.addEventListener('change', setData.bind(null, chart));
+    pka3.addEventListener('change', setData.bind(null, chart));
+        </script>-->
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            This chart shows how symbols and shapes can be used in charts.
+            Highcharts includes several common symbol shapes, such as squares,
+            circles and triangles, but it is also possible to add your own
+            custom symbols. This is a place holder by Highchart until I can get things working
+        </p>
+    </figure>
+    <script>
+    Highcharts.chart('container', {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Monthly Average Temperature'
+            },
+            subtitle: {
+                text: 'Source: WorldClimate.com and Highchart.com'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + '°';
+                    }
+                }
+            },
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            },
+            series: [{
+                name: 'Tokyo',
+                marker: {
+                    symbol: 'square'
+                },
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+                    y: 26.5,
+                    marker: {
+                        symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+                    }
+                }, 23.3, 18.3, 13.9, 9.6]
+
+            }, {
+                name: 'London',
+                marker: {
+                    symbol: 'diamond'
+                },
+                data: [{
+                    y: 3.9,
+                    marker: {
+                        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
+                    }
+                }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+    </script>
+</body>
+</html>
