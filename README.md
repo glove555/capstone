@@ -35,21 +35,21 @@ Week 5:
 - Fixed weird banner styling and the tabs in the amino acid area acting up (4 hours)
 
 Week 6:
--I got a basic chart up and running this week that can essentially take inputs and change based on them and not have a person have to refresh the page,yay (7 hours)
--Fixed a few more UI problems (ability to see words and lettering, headers, etc) (4 hours)
--Looked into how importing an excel sheet for the API I'm using would work (3 hours)
+- I got a basic chart up and running this week that can essentially take inputs and change based on them and not have a person have to refresh the page,yay (7 hours)
+- Fixed a few more UI problems (ability to see words and lettering, headers, etc) (4 hours)
+- Looked into how importing an excel sheet for the API I'm using would work (3 hours)
 
 Week 7:
--worked out some of the variables for graph (x/y axis, and exporting/CSV) (4 hours)
--fixed some of the UI problems like shiffting pages(3 hours)
--fixed the search bar that wasn't running (4 hours)
+- worked out some of the variables for graph (x/y axis, and exporting/CSV) (4 hours)
+- fixed some of the UI problems like shiffting pages(3 hours)
+- fixed the search bar that wasn't running (4 hours)
 
 Week 8
--I have done the plot and gotten that sorted for the most part (about 6ish hours)
--All the amino acids have been updated with more information
+- I have done the plot and gotten that sorted for the most part (about 6ish hours)
+- All the amino acids have been updated with more information
 
 Week 9:
--decided against AWS and went with Hostinger, which worked great, set up website on there and it worked for the most part - has HTTPS and SSL certs, and its own domain
--fixed search function on webserver (2 hours)
--fixed images that were broken (30 mins)
--embedded Excel Sheet to increase completeness and usability since I could not get Highchart working, backend code is still present to show attempt (1 hour)
+- decided against AWS and went with Hostinger, which worked great, set up website on there and it worked for the most part - has HTTPS and SSL certs, and its own domain
+- fixed search function on webserver (2 hours)
+- fixed images that were broken (30 mins)
+- embedded Excel Sheet to increase completeness and usability since I could not get Highchart working, backend code is still present to show attempt (1 hour)
