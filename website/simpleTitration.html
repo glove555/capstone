@@ -16,154 +16,236 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="pKa2AA.html">pKa 2 AA</a></li>
-                <li><a href="aminos.html">Aminos</a></li>
+                <li><a href="aminos.html">Amino</a></li>
                 <li><a href="simpleTitration.html" class="active">Titration</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </div><!---menu-wrap-End--->
+    <div class="page-wrap">
+        <div class="wrap3">
+            <br />
+            <p> This tab will take your data for Equivalents of OH- and Unknown Amino Acid pH's and return a titration curve.</p>
+            <br />
+            <br />
+            <br />
+            <p align="center"><iframe width="1000" height="700" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=D0D0043E4EBB11AB%2113810&authkey=%21ANLBJJ-fD1emDrY&em=2&AllowTyping=True&ActiveCell='Sheet1'!B2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe></p>
+            <br />
+            <br />
+            <br />
+            <div class="page-wrap">
+                <div class="wrap3">
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-    <!--<div class="input">
-            <input id="OH" type="number" />
-            <input id="acid" type="number" />
-            <input id="pka1" type="number">
-            <input id="pka2" type="number">
-            <input id="pka3" type="number" />
+                    <div class="title">
+                        <h1>Tool: pK to Amino Acid</h1>
+                        <br>
+                        <span>
+                            Take pKa of side chains and return amino acid match. Please be sure that chains being added together are closest in value.
+                            For example, if my unknown amino acid had a pKa of 2, 4, and 8. The pKas of the chains with 2 and 4 would be added and divided to form the isoelectric point.
+                            Be sure that your inputs are numbers and the two closest pKas.
+                        </span>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <input id="value1" type="text" />
+                    <span> + </span>
+                    <input id="value2" type="text" />
+                    <input type="submit" onclick="output();">
+                    <p id="result"> </p>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+            </div>
         </div>
 
-     <script>
-      var pka1 = document.getElementById('pka1'),
-      pka2 = document.getElementById('pka2'),
-      pka3 = document.getElementById('pka3'),
-      chart;
+            <script type="text/javascript" language="javascript" charset="utf-8">
+
+                function output() {
+                    var value1 = parseInt(document.getElementById('value1').value);
+                    var value2 = parseInt(document.getElementById('value2').value);
+                    var result = "";
+                    if (value1 < 0) {
+                        result = "One of your values is less than 0."
+                    }
+                    if (value2 < 0) {
+                        result = "One of your values is less than 0."
+                    }
+
+                    var pI = (value1 + value2) / 2;
+                    if (pI < 0) {
+                        result = "Please check values entered, this is not possible pH cannot be less than 0. Please also ensure inputs were numbers!"
+                    }
+                    else if (pI < 2.5) {
+                        result = "Although possible, you are likely not handling an amino acid or there is contamination, the pI is simply too acidic."
+                    }
+                    else if (pI < 4.7) {
+                        result = "Your amino acid is likely glutamic (3.08) or aspartic acid (2.98)."
+                    }
+                    else if (pI < 5.3) {
+                        result = "Your amino acid is likely cysteine (5.15)."
+                    }
+                    else if (pI < 5.5) {
+                        result = "Your amino acid is likely asparagine (5.43)."
+                    }
+                    else if (pI < 5.7) {
+                        result = "Your amino acid is likely glutamine (5.65), threonine (5.6), or tyrosine (5.63)."
+                    }
+                    else if (pI < 5.8) {
+                        result = "Your amino acid is likely methionine (5.71), serine (5.7), or phenylalanine (5.76)."
+                    }
+                    else if (pI < 5.9) {
+                        result = "Your amino acid is likely tryptophan (5.88)."
+                    }
+                    else if (pI < 6.1) {
+                        result = "Your amino acid is likely glycine (6.06), isoleucine (6.04), leucine (6.04), or valine (6.02)."
+                    }
+                    else if (pI < 6.2) {
+                        result = "Your amino acid is likely glycine (6.06) or alanine (6.11)."
+                    }
+                    else if (pI < 6.4) {
+                        result = "Your amino acid is likely proline (6.3)."
+                    }
+                    else if (pI = 7.7) {
+                        result = "Your amino acid is likely histidine (7.59)."
+                    }
+                    else if (pI < 10) {
+                        result = "Your amino acid is likely lysine (9.47)."
+                    }
+                    else if (pI < 11.5) {
+                        result = "Your amino acid is likely arginine (10.76)."
+                    }
+                    else {
+                        result = "Your pI is super high or you put nothing in here or something like a letter, please check your numbers again!"
+                    }
+                    document.getElementById('result').innerHTML = result;
+                }
+
+            </script>
+
+            <!---This is my attempted Highchart work that I could not get working. It was able to take a CSV file and parse it into an HTML table, but no matter what I did the table wasn't formatted in a way that made Highcharts happy-->
+            <!---Highchart formatting, data, and exporting data/images-->
+            <!--<script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/modules/data.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <script src="https://code.highcharts.com/modules/export-data.js"></script>
+            <script src="https://code.highcharts.com/modules/accessibility.js"></script></script>
+
+            <div id="container" style="width: 1850px; height: 500px; margin:25px"></div>-->
+            <!---File upload to create CSV to HTML table-->
+            <!--<script type="text/javascript">
+                function Upload() {
+                    var fileUpload = document.getElementById("fileUpload");
+                    //standard file regex
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+                    if (regex.test(fileUpload.value.toLowerCase())) {
+                        if (typeof (FileReader) != "undefined") {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var table = document.createElement("table");
+                                var rows = e.target.result.split("\n");
+                                for (var i = 0; i < rows.length; i++) {
+                                    var cells = rows[i].split(",");
+                                    if (cells.length > 1) {
+                                        var row = table.insertRow(-1);
+                                        for (var j = 0; j < cells.length; j++) {
+                                            var cell = row.insertCell(-1);
+                                            cell.innerHTML = cells[j];
+                                        }
+                                    }
+                                }
+
+                                var dvCSV = document.getElementById("dvCSV");
+                                dvCSV.innerHTML = "";
+                                dvCSV.appendChild(table);
+                                table.setAttribute("id", "datatable");
+                            }
+                            reader.readAsText(fileUpload.files[0]);
+                        } else {
+                            alert("This browser does not support HTML5.");
+                        }
+                    } else {
+                        alert("Please upload a valid CSV file.");
+                    }
+                }
+                var dvCSV = document.getElementById("dvCSV");
+                Highcharts.chart('container', {
+                    title: {
+                        text: 'Titration Curve'
+                    },
+                    series: [{
+                        data: "dvCSV"
+
+                    }],
+
+                    yAxis: {
+                        title: {
+                            text: 'pH'
+                        }
+                    },
+                    xAxis: {
+                        title: {
+                            text: 'Equivalents of OH-'
+                        }
+                    },
+                    chart: {
+                        type: 'spline'
+                    }
+
+                });
+            </script>-->
+            <!--<script>
+                const options = {
+                    yAxis: {
+                        title: {
+                            text: 'pH'
+                        }
+                    },
+                    xAxis: {
+                        title: {
+                            text: 'Equivalents of OH-'
+                        }
+                    },
+                    chart: {
+                        type: 'spline'
+                    },
+                    title: {
+                        text: 'Titration Curve'
+                    },
+                    series: [{
+                        data: [70, 50, 30, 10],
+                        type: 'spline'
+                    }]
+                }
+             options.series[0].data.forEach((data, i) => {
+             const el = document.createElement('input')
+             el.addEventListener('change', updateColumn(i))
+             document.body.appendChild(el)
+             })
 
 
-         chart = Highcharts.chart('container', {
-             chart: {
-                 events: {
-                     load: function () {
-                         var chart = this;
-
-                         setData(chart);
-                     }
-                 }
-             },
-             title: {
-                 text: 'Titration Curve'
-             },
-             plotOptions: {
-                 series: {
-                     pointStart: 0
-                 }
-             },
-             xAxis: {
-                 title: {
-                     text: 'Equivalents OH'
-                 },
-             series: [{
-                 name: 'Unknown amino acid',
-                 data: []
-             }],
-             responsive: {
-                 rules: [{
-                     condition: {
-                         maxWidth: 500
-                     },
-                     chartOptions: {
-                         legend: {
-                             layout: 'horizontal',
-                             align: 'center',
-                             verticalAlign: 'bottom'
-                         }
-                     }
-                 }]
+             function updateColumn (i) {
+             return function (e) {
+             const value = Number(e.target.value) || null
+             chart.series[0].data[i].update(value)
              }
-         });
+             }
+             </script>
+             <figure class="highcharts-figure">
+                 <div id="container"></div>
+             </figure>-->
+            <!---File Chosing and uploading for script-->
+            <!--<input type="file" accept=".csv" id="fileUpload" />
+            <input type="button" id="upload" value="Upload" onclick="Upload()" />
+            <hr />-->
+            <!---table creation-->
+            <!--<div id=dvCSV></div>-->
+            <!---creating -->
+            <!--<br />-->
 
-    pka1.addEventListener('change', setData.bind(null, chart));
-    pka2.addEventListener('change', setData.bind(null, chart));
-    pka3.addEventListener('change', setData.bind(null, chart));
-        </script>-->
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            This chart shows how symbols and shapes can be used in charts.
-            Highcharts includes several common symbol shapes, such as squares,
-            circles and triangles, but it is also possible to add your own
-            custom symbols. This is a place holder by Highchart until I can get things working
-        </p>
-    </figure>
-    <script>
-    Highcharts.chart('container', {
-            chart: {
-                type: 'spline'
-            },
-            title: {
-                text: 'Monthly Average Temperature'
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com and Highchart.com'
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature'
-                },
-                labels: {
-                    formatter: function () {
-                        return this.value + '°';
-                    }
-                }
-            },
-            tooltip: {
-                crosshairs: true,
-                shared: true
-            },
-            plotOptions: {
-                spline: {
-                    marker: {
-                        radius: 4,
-                        lineColor: '#666666',
-                        lineWidth: 1
-                    }
-                }
-            },
-            series: [{
-                name: 'Tokyo',
-                marker: {
-                    symbol: 'square'
-                },
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
-                    y: 26.5,
-                    marker: {
-                        symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
-                    }
-                }, 23.3, 18.3, 13.9, 9.6]
 
-            }, {
-                name: 'London',
-                marker: {
-                    symbol: 'diamond'
-                },
-                data: [{
-                    y: 3.9,
-                    marker: {
-                        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
-                    }
-                }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
-    </script>
+
 </body>
 </html>

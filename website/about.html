@@ -15,9 +15,8 @@
         <div class="menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html"class="active">About</a></li>
-                <li><a href="pKa2AA.html">pKa 2 AA</a></li>
-                <li><a href="aminos.html" >Aminos</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="aminos.html">Aminos</a></li>
                 <li><a href="simpleTitration.html">Titration</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -27,7 +26,7 @@
 
     <div class="page-wrap">
         <div class="wrap3">
-            <div class="panel"></div>
+
             <div class="title">
                 <h1>About Experiment:</h1>
             </div>
@@ -47,17 +46,17 @@
         <p>
             Creating a titration curve for a weak acid, such as phosphoric acid or an amino acid is a typical undergraduate
             laboratory experiment.Titration curves are obtained when the pH of a given volume of a sample solution varies after successive
-            addition of acid or alkali/basic. The curves are usually plots of pH against the volume of titrant added or more correctly against
+            addition of an acid or alkali/base. The curves are usually plots of pH against the volume of titrant added or more correctly against
             the number of equivalents added per mole of the sample. The titration curve of an amino acid empirically defines several
             characteristics. The precise number of each characteristic depends on the nature of the amino acid being titrated:
             1) the number of ionizing groups
             2) the pKa of the ionizing group(s)
-            3) the buffer region(s)
+            3) the buffer region(s).
         </p>
 
         <p>
             Each of these amino acids has a different side chain chemistry, but all
-            of the amino acids have an acidic group (—COOH) and a basic group (NH2 )
+            of the amino acids have an acidic group (—COOH) and a basic group (NH2)
             attached to the α carbon. The strong positive charge on the amino group
             induces a tendency for the carboxylic acid group to lose a proton. Some amino
             acids—such as the ones in this experiment—contain ionizable groups in their
@@ -65,32 +64,72 @@
             when the pH is altered. The dissociation of protons proceeds in a certain order
             which depends on the acidity of the proton: the one which is most acidic and
             having a lower pKa will dissociate first. So, typically the H+ on the α-COOH
-            group (pKa1 ) will dissociate before that on the α-NH3 group (pKa2 ). This is
+            group (pKa1) will dissociate before that on the α-NH3 group (pKa2). This is
             because the resonance delocalization of charge on the carboxylic acid group
-            stabilizes the conjugate base anion, whereas the amino group does not exhibit resonance stabilization
+            stabilizes the conjugate base anion, whereas the amino group does not exhibit resonance stabilization.
         </p>
 
         <div class="title">
             <h1>Experimental Procedure:</h1>
         </div>
         <p>
-            Titrate 25mL of 20 mM of each amino acid. The overal grams needed for each will depend on the molar mass of the amino acid unless they are similar (ex. 155.1 g/mol for histidine, 146.2 g/mol for lysine, 146.1
-            g/mol for glutamine and 147.1 g/mo for glutamic acid). Most professors tend to use amino acids similar in mass, meaning the same number of grams will be used of each. If this is not the case - please calculate amount of grams needed of amino acid.
+            1) Titrate 25mL of 20 mM of each amino acid. The overall grams needed for each will depend on the molar mass of the amino acid unless they are similar
+            (ex. 155.1 g/mol for histidine, 146.2 g/mol for lysine, 146.1 g/mol for glutamine and 147.1 g/mo for glutamic acid).
+            Most professors tend to use amino acids similar in mass, meaning the same number of grams will be used of each.
+            If this is not the case - please calculate amount of grams needed of amino acid.
         </p>
+
+        <p> Volume of Solution (mL)</p>
+        <input id="value3" type="text" />
+        <span> + </span>
+        <p> Concentration (mM)</p>
+        <input id="value4" type="text" />
+        <input type="submit" onclick="output()">
+        <br />
+        <p id="result"> </p>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+
+            function output() {
+                var value3 = parseInt(document.getElementById('value1').value);
+                var value4 = parseInt(document.getElementById('value2').value);
+                var result = "";
+                var math = (value3 * value4) / (1, 000, 000);
+                result = math.toString;
+                document.getElementById('result').innerHTML = result;
+        </script>
         <p>
-            Callibrate the pH meter, then bring the pH of each amino acid solution to 2 using 60 mM HCl. Add 1 mL aliquot of 50 mM NaOH. 
+            2) Callibrate the pH meter, then bring the pH of each amino acid solution to 2 using 60 mM HCl. Add 1 mL aliquot of 50 mM NaOH.
         </p>
-        
-        <p>Determine the equivalent OH for each volume of NaOH added to the amino acid solution (Hint: this will be the number found by dividing the moles of the unknown amino acid and the titrant NaOH.) </p>
 
-        <p>Moles can be found by multiplying the volume of a solution in liters and its concentration in molar (M).</p>
+        <p>
+            3) Determine the equivalent OH for each volume of NaOH added to the amino acid solution (Hint: this will be the number found by dividing the moles of the unknown amino acid and the titrant NaOH.)
+        </p>
 
-        <p>In your spreadsheet of choice, make your first column the volume of NaOH added (mL), your second column Equivalents of OH- found from the last step, and finally in your third column the Unknown Amino Acid pH that you find from your titration.</p>
+        <p>
+            4) Moles can be found by multiplying the volume of a solution in liters and its concentration in molar (M).
+        </p>
 
-        <p>As a reference it should look something like this:</p>
+        <p>
+            5) In your spreadsheet of choice, make your first column the volume of NaOH added (mL), your second column Equivalents of OH- found from the last step,
+            and finally in your third column the Unknown Amino Acid pH that you find from your titration.
+        </p>
+
+        <p>
+            If you find yourself lost please click on details for what your spreadsheet should look like:
+        </p>
+        <details><img src="../../capstone/website/images/AApng/Table.png" alt="Example Table." style="width:50%; height: 85%" /></details>
 
 
-    <div class="clearing"></div>
-    </div>
-</body>
-</html>
+        <p>
+            6) Create titration curve.
+
+            A titration curve is solely based off of the equivalents of OH and the pH.
+            Typically pKas are determined by looking at specific locations of OH equivalents.
+            If the measurements are the same as the above measurments created,
+            one would look at 0.5, 1.5, and 2.5 for the pH values of the unknown amino acid to represent its pKas.
+            You can then use these values in the titration tab to create a titration curve, and also put it in the PKA 2 AA tab to receive possible amino acid matches.
+        </p>
+
+
+</body >
+</html >

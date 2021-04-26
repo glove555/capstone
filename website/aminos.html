@@ -4,6 +4,7 @@
 <head>
     <title>pH2AminoAcid</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
 </head>
 <body>
 
@@ -18,7 +19,6 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="pKa2AA.html">pKa 2 AA</a></li>
                 <li><a href="aminos.html" class="active">Aminos</a></li>
                 <li><a href="simpleTitration.html">Titration</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -32,6 +32,7 @@
                 <h1>Amino Acids</h1>
             </div>
         </div>
+
         <!---menu-wrap-End--->
         <style>
             p {
@@ -40,613 +41,662 @@
         </style>
 
 
-
         <p>
-            Amino acids are any group of organic molecules that consist of a basic amino group (―NH 2 ), an acidic carboxyl group (―COOH), and an organic R group (or side chain) that is unique to each amino acid. Since R-groups are unique - they can affect the pH/pKa of the chains and also result in a different isoelectric point.
-            The isoelectric point can then be used to identify amino acid matches. Furthermore, amino acids can be grouped based on specific properties special to them (ie. +/- charge, etc)
+            Amino acids are any group of organic molecules that consist of a basic amino group (―NH 2 ), an acidic carboxyl group (―COOH), and an organic R group (or side chain) that is unique to each amino acid.
+        </p>
+        <img src="../images/AApng/AA.jpg" alt="Amino Acid Structure" style="width:50%; height:35%; margin-left:auto; margin-right: auto; display: block" />
+        <br />
+        <p>
+            Since R-groups are unique - they can affect the pH/pKa of the chains and also result in a different isoelectric point (pI value).
+            The isoelectric point can then be used to identify amino acid matches. Furthermore, amino acids can be grouped based on specific properties special to them (ie. +/- charge, polar/nonpolar, etc)
         </p>
 
         <p>
             As amino acids are exposed to acids (protonated) or bases (deprotonated) they gain (protonated) or lose (deprotonated) Hydrogens resulting in differing structures.
             Amino acids are also one of few compounds that form zwitterions. In the case of amino acids this occurs when the NH3 group has not been deprotonated into the NH2 group and COOH has been deprotonated to form COO-.
+            Titration curves will have areas of buffering depending on how many pKas there are. If there are 3 pKAs like in Glutamate - there will be three "humps" or curvy areas to the curve.
+            If there are two pKa there will typically only be 2 humps.
         </p>
 
-        <div id="myBtnContainer">
-            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-            <button class="btn" onclick="filterSelection('hydrophobic')"> hydrophobic</button>
-            <button class="btn" onclick="filterSelection('polar uncharged')"> polar uncharged</button>
-            <button class="btn" onclick="filterSelection('special cases')"> special cases</button>
-            <button class="btn" onclick="filterSelection('positively charged')"> positively charged</button>
-            <button class="btn" onclick="filterSelection('negatively charged')"> negatively charged</button>
-            <input type="text" id = "myInput" onkeylookup = "myFunction()" placeholder="Search amino acids..." />
-        </div>
+
+        <!--Search form-->
+        <form id=f1 name="f1" action=""
+              onSubmit="if(this.t1.value!=null && this.t1.value!='')
+                findString(this.t1.value);return false">
+            <input type="text" id=t1 name=t1 size=20>
+            <input type="submit" name=b1 value="Find">
+        </form>
 
         <br>
-        <br>
-        <!-- Portfolio Gallery Grid -->
-        <ul id="Amino Acids">
-            <li><a> Alanine</a>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ala+.png" alt="Alanine +1" style="width:100px; height:100px">
-                        <h4>Alanine (Ala+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ala0.png" alt="Alanine 0" style="width:100px; height:100px">
-                        <h4>Alanine (Ala0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ala-.png" alt="Alanine -1" style="width:100px; height:100px">
-                        <h4>Alanine (Ala-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
+        <!-- Gallery of amino acids-->
+        <a> Alanine</a>
+        <div class="row">
+            <div class="column">
+                <div class="content">
+                    <img src="../images/AApng/Ala+.png" alt="Alanine +1" style="width:100px; height:100px">
+                    <h4>Alanine (Ala+)</h4>
+                    <p>Protonated Form</p>
                 </div>
             </div>
-            <p>Alanine is a.....</p>
-            </li>
-            <div class="row">
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Arg2+.png" alt="Arginine +2" style="width:60%">
-                        <h4>Arginine (Arg2+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Arg+.png" alt="Arginine +1" style="width:60%">
-                        <h4>Arginine (Arg+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Arg0.png" alt="Arginine 0" style="width:60%">
-                        <h4>Arginine (Arg0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Arg-.png" alt="Arginine -1" style="width:60%">
-                        <h4>Arginine (Arg-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
+            <div class="column">
+                <div class="content">
+                    <img src="../images/AApng/Ala0.png" alt="Alanine 0" style="width:100px; height:100px">
+                    <h4>Alanine (Ala0)</h4>
+                    <p>Zwitterion</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asn+.png" alt="Asparagine +1" style="width:40%">
-                        <h4>Asparagine (Asn+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asn0.png" alt="Asparagine 0" style="width:40%">
-                        <h4>Asparagine (Asn0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asn-.png" alt="Asparagine -1" style="width:40%">
-                        <h4>Asparagine (Asn-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
+            <div class="column">
+                <div class="content">
+                    <img src="../images/AApng/Ala-.png" alt="Alanine -1" style="width:100px; height:100px">
+                    <h4>Alanine (Ala-)</h4>
+                    <p>Deprotonated Form</p>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asp+.png" alt="Asparagine +1" style="width:40%">
-                        <h4>Aspartic Acid (Asp+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asp0.png" alt="Asparagine 0" style="width:40%">
-                        <h4>Aspartic Acid (Asp0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asp-.png" alt="Asparagine -1" style="width:40%">
-                        <h4>Aspartic Acid (Asp-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Asp2-.png" alt="Asparagine -2" style="width:40%">
-                        <h4>Aspartic Acid (Asp2-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Cys+.png" alt="Cysteine +1" style="width:40%">
-                        <h4>Cysteine (Cys+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Cys0.png" alt="Cysteine 0" style="width:40%">
-                        <h4>Cysteine (Cys0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Cys-.png" alt="Cysteine -1" style="width:40%">
-                        <h4>Cysteine (Cys-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Cys2-.png" alt="Cysteine -2" style="width:40%">
-                        <h4>Cysteine (Cys2-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gln+.png" alt="Glutamine +1" style="width:40%">
-                        <h4>Glutamine (Gln+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gln0.png" alt="Glutamine 0" style="width:40%">
-                        <h4>Glutamine (Gln0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gln-.png" alt="Glutamine -1" style="width:40%">
-                        <h4>Glutamine (Gln-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Glu+.png" alt="Glutamic Acid +1" style="width:40%">
-                        <h4>Glutamic Acid (Glu+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Glu0.png" alt="Glutamic Acid 0" style="width:40%">
-                        <h4>Glutamic Acid (Glu0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Glu-.png" alt="Glutamic Acid -1" style="width:40%">
-                        <h4>Glutamic Acid (Glu-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-                <div class="column negatively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Glu2-.png" alt="Glutamic Acid -2" style="width:40%">
-                        <h4>Glutamic Acid (Glu2-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/His2+.png" alt="Histidine +2" style="width:60%">
-                        <h4>Histidine (His2+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/His+.png" alt="Histidine +1" style="width:60%">
-                        <h4>Histidine (His+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/His0.png" alt="Histidine 0" style="width:60%">
-                        <h4>Histidine (His0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/His-.png" alt="Histidine -1" style="width:60%">
-                        <h4>Histidine (His-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Lys2+.png" alt="Lysine +2" style="width:60%">
-                        <h4>Lysine (Lys2+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Lys+.png" alt="Lysine +1" style="width:60%">
-                        <h4>Lysine (Lys+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Lys0.png" alt="Lysine 0" style="width:60%">
-                        <h4>Lysine (Lys0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column positively charged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Lys-.png" alt="Lysine -1" style="width:60%">
-                        <h4>Lysine (Lys-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ser+.png" alt="Serine +1" style="width:40%">
-                        <h4>Serine (Ser+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ser0.png" alt="Serine 0" style="width:40%">
-                        <h4>Serine (Ser0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ser-.png" alt="Serine -1" style="width:40%">
-                        <h4>Serine (Ser-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Thr+.png" alt="Threonine +1" style="width:40%">
-                        <h4>Threonine (Thr+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Thr0.png" alt="Threonine 0" style="width:40%">
-                        <h4>Threonine (Thr0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column polar uncharged">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Thr-.png" alt="Threonine -1" style="width:40%">
-                        <h4>Threonine (Thr-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gly+.png" alt="Glycine +1" style="width:40%">
-                        <h4>Glycine (Gly+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gly0.png" alt="Glycine 0" style="width:40%">
-                        <h4>Glycine (Gly0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Gly-.png" alt="Glycine -1" style="width:40%">
-                        <h4>Glycine (Gly-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Pro+.png" alt="Proline +1" style="width:40%">
-                        <h4>Proline (Pro+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Pro0.png" alt="Proline 0" style="width:40%">
-                        <h4>Proline (Pro0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column special cases">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Pro-.png" alt="Proline -1" style="width:40%">
-                        <h4>Proline (Pro-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Val+.png" alt="Valine +1" style="width:40%">
-                        <h4>Valine (Val+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Val0.png" alt="Valine 0" style="width:40%">
-                        <h4>Valine (Val0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Val-.png" alt="Valine -1" style="width:40%">
-                        <h4>Valine (Val-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ile2+.png" alt="Isoleucine +2" style="width:60%">
-                        <h4>Isoleucine (Ile2+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ile+.png" alt="Isoleucine +1" style="width:60%">
-                        <h4>Isoleucine (Ile+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ile0.png" alt="Isoleucine 0" style="width:60%">
-                        <h4>Isoleucine (Ile0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Ile-.png" alt="Isoleucine -1" style="width:60%">
-                        <h4>Isoleucine (Ile-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Leu+.png" alt="Leucine +1" style="width:40%">
-                        <h4>Leucine (Leu+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Leu0.png" alt="Leucine 0" style="width:40%">
-                        <h4>Leucine (Leu0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Leu-.png" alt="Leucine -1" style="width:40%">
-                        <h4>Leucine (Leu-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Phe+.png" alt="Phenylalanine +1" style="width:40%">
-                        <h4>Phenylalanine (Phe+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Phe0.png" alt="Phenylalanine 0" style="width:40%">
-                        <h4>Phenylalanine (Phe0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Phe-.png" alt="Phenylalanine -1" style="width:40%">
-                        <h4>Phenylalanine (Phe-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Tyr+.png" alt="Tyrosine +1" style="width:60%">
-                        <h4>Tyrosine (Tyr+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Tyr0.png" alt="Tyrosine 0" style="width:60%">
-                        <h4>Tyrosine (Tyr0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Tyr-.png" alt="Tyrosine -1" style="width:60%">
-                        <h4>Tyrosine (Tyr-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Trp+.png" alt="Tryptophan +1" style="width:40%">
-                        <h4>Tryptophan (Trp+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Trp0.png" alt="Tryptophan 0" style="width:40%">
-                        <h4>Tryptophan (Trp0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Trp-.png" alt="Tryptophan -1" style="width:40%">
-                        <h4>Tryptophan (Trp-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Met+.png" alt="Methionine +1" style="width:60%">
-                        <h4>Methionine (Met+)</h4>
-                        <p>Protonated Form</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Met0.png" alt="Methionine 0" style="width:60%">
-                        <h4>Methionine (Met0)</h4>
-                        <p>Zwitterion</p>
-                    </div>
-                </div>
-                <div class="column hydrophobic">
-                    <div class="content">
-                        <img src="../../capstone/website/images/AApng/Met-.png" alt="Methionine -1" style="width:60%">
-                        <h4>Methionine (Met-)</h4>
-                        <p>Deprotonated Form</p>
-                    </div>
-                </div>
-            </div>
-        </ul>
         </div>
+
+        <p>
+            Alanine is a hydrophobic amino acid imperative in strengthening the immune system,
+            breaking down tryptophan and vitamin B-6, and helping the body use sugars.
+            Its standard pKa values are 2.34 and 9.69, which result in a pI of 6.
+        </p>
+    <a>Arginine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Arg2+.png" alt="Arginine +2" style="width:60%">
+                <h4>Arginine (Arg2+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Arg+.png" alt="Arginine +1" style="width:60%">
+                <h4>Arginine (Arg+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Arg0.png" alt="Arginine 0" style="width:60%">
+                <h4>Arginine (Arg0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Arg-.png" alt="Arginine -1" style="width:60%">
+                <h4>Arginine (Arg-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Arginine is a positively charged amino acid commonly used in medicines as it helps to narrow blood vessels and improves high blood pressure.
+        Its pKa values are typically 2.17, 9.04, and 12.48 - resulting in a pI of 10.76.
+    </p>
+    <a>Asparagine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asn+.png" alt="Asparagine +1" style="width:40%">
+                <h4>Asparagine (Asn+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asn0.png" alt="Asparagine 0" style="width:40%">
+                <h4>Asparagine (Asn0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asn-.png" alt="Asparagine -1" style="width:40%">
+                <h4>Asparagine (Asn-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Asparagine is considered non-essential since it is a derivative of aspartic acid,
+        however, it still acts as a nontoxic carrier of ammonia to eliminate it before it becomes nitric oxide from the body.
+        Its pKa values are 2.02 and 8.8, resulting in an pI value of 5.41
+    </p>
+
+    <a>Aspartic Acid</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asp+.png" alt="Asparagine +1" style="width:40%">
+                <h4>Aspartic Acid (Asp+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asp0.png" alt="Asparagine 0" style="width:40%">
+                <h4>Aspartic Acid (Asp0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asp-.png" alt="Asparagine -1" style="width:40%">
+                <h4>Aspartic Acid (Asp-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Asp2-.png" alt="Asparagine -2" style="width:40%">
+                <h4>Aspartic Acid (Asp2-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Aspartic acid is a negatively charged amino acid that assists in the citric acid and urea cycles.
+        Many other amino acids are synthesized from aspartic acid.
+        Its pKa values are 1.88, 9.60, and 3.65, resulting in a pI of 2.77.
+    </p>
+    <a>Cysteine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Cys+.png" alt="Cysteine +1" style="width:40%">
+                <h4>Cysteine (Cys+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Cys0.png" alt="Cysteine 0" style="width:40%">
+                <h4>Cysteine (Cys0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Cys-.png" alt="Cysteine -1" style="width:40%">
+                <h4>Cysteine (Cys-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Cys2-.png" alt="Cysteine -2" style="width:40%">
+                <h4>Cysteine (Cys2-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Cysteine is a special amino acid since it contains a sulfur group.
+        Thanks to it, cysteine is able to participate in enzymatic reactions as nucleophile
+        (it donates an electron pair). Its pKa values are 1.96 and 8.18 resulting in a pI of 5.07.
+    </p>
+    <a>Glutamine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gln+.png" alt="Glutamine +1" style="width:40%">
+                <h4>Glutamine (Gln+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gln0.png" alt="Glutamine 0" style="width:40%">
+                <h4>Glutamine (Gln0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gln-.png" alt="Glutamine -1" style="width:40%">
+                <h4>Glutamine (Gln-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Glutamine is an amino acid naturally found in the body, charge neutral, and polar.
+        It assists in creating ATP and helps the immune system function. Its pKa values are 2.17 and 9.13, resulting in a pI of 5.65
+    </p>
+    <a>Glutamic Acid</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Glu+.png" alt="Glutamic Acid +1" style="width:40%">
+                <h4>Glutamic Acid (Glu+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Glu0.png" alt="Glutamic Acid 0" style="width:40%">
+                <h4>Glutamic Acid (Glu0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Glu-.png" alt="Glutamic Acid -1" style="width:40%">
+                <h4>Glutamic Acid (Glu-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Glu2-.png" alt="Glutamic Acid -2" style="width:40%">
+                <h4>Glutamic Acid (Glu2-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Glutamic acid is a negatively charged amino acid synthesized in the human body.
+        It acts primarily as a neurotransmitter with pKa values of 2.19, 9.67, and 4.25 resulting in a pI of 3.22.
+    </p>
+    <a>Histidine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/His2+.png" alt="Histidine +2" style="width:60%">
+                <h4>Histidine (His2+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/His+.png" alt="Histidine +1" style="width:60%">
+                <h4>Histidine (His+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/His0.png" alt="Histidine 0" style="width:60%">
+                <h4>Histidine (His0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/His-.png" alt="Histidine -1" style="width:60%">
+                <h4>Histidine (His-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Histidine is essential for infants and for a healthy kidney.
+        It is positively charged and with pKa values of 1.82, 9.17, and 6.0 -
+        the pI is around blood pH at 7.59.
+    </p>
+    <a>Lysine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Lys2+.png" alt="Lysine +2" style="width:60%">
+                <h4>Lysine (Lys2+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Lys+.png" alt="Lysine +1" style="width:60%">
+                <h4>Lysine (Lys+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Lys0.png" alt="Lysine 0" style="width:60%">
+                <h4>Lysine (Lys0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Lys-.png" alt="Lysine -1" style="width:60%">
+                <h4>Lysine (Lys-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>The human body cannot produce the amino acid lysine. It is positively charged and found in meat, fish, dairy, eggs, soy, and other beans. 
+    It has pKa values of 2.18, 8.95, and 10.53 for a pI of 9.74.</p>
+    <a>Serine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ser+.png" alt="Serine +1" style="width:40%">
+                <h4>Serine (Ser+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ser0.png" alt="Serine 0" style="width:40%">
+                <h4>Serine (Ser0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ser-.png" alt="Serine -1" style="width:40%">
+                <h4>Serine (Ser-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Serine is an uncharged polar amino acid that is made in the body and contains an alcohol group that is used for the metabolism of fats.
+    Its pKa values are 2.21 and 9.15, which result in a pI of 5.68.</p>
+    <a>Threonine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Thr+.png" alt="Threonine +1" style="width:40%">
+                <h4>Threonine (Thr+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Thr0.png" alt="Threonine 0" style="width:40%">
+                <h4>Threonine (Thr0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Thr-.png" alt="Threonine -1" style="width:40%">
+                <h4>Threonine (Thr-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Threonine is an uncharged polar amino acid that cannot be made in the body and contains an alcohol group that is used for the metabolism of fats. 
+    It is often found in poultry products, beans, dairy, and nuts. Its pKa values are 2.09 and 9.1, which result in a pI of 5.6.</p>
+    <a>Glycine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gly+.png" alt="Glycine +1" style="width:40%">
+                <h4>Glycine (Gly+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gly0.png" alt="Glycine 0" style="width:40%">
+                <h4>Glycine (Gly0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Gly-.png" alt="Glycine -1" style="width:40%">
+                <h4>Glycine (Gly-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Glycine is a special amino acid since it only has a single hydrogen atom as its side chain. 
+        The human body is capable of making glycine, but it can also be found in protein rich foods.
+        Its pKa values are 2.34 and 9.6, which result in a pI of 5.97.
+    </p>
+    <a>Proline</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Pro+.png" alt="Proline +1" style="width:40%">
+                <h4>Proline (Pro+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Pro0.png" alt="Proline 0" style="width:40%">
+                <h4>Proline (Pro0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Pro-.png" alt="Proline -1" style="width:40%">
+                <h4>Proline (Pro-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        Proline is also a special amino acid since it is not a primary amino acid which has one carbon bonded to the amine, but a secondary imino that attaches to the protein backbone twice.
+        This means that in the human body, the NH2 is protonated and the -COOH is deprotonated. Its pKa values are 1.99 and 10.60, which result in a pI value of 6.3.
+    </p>
+    <a>Valine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Val+.png" alt="Valine +1" style="width:40%">
+                <h4>Valine (Val+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Val0.png" alt="Valine 0" style="width:40%">
+                <h4>Valine (Val0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Val-.png" alt="Valine -1" style="width:40%">
+                <h4>Valine (Val-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Valine is a hydrophobic amino acid not made in the body, but found in plants. It is one of the most imperative amino acids as it is found in many essential proteins and its pKa values are 2.32 and 9.62, which result in a pI of 5.96.</p>
+    <a>Leucine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Leu+.png" alt="Leucine +1" style="width:40%">
+                <h4>Leucine (Leu+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Leu0.png" alt="Leucine 0" style="width:40%">
+                <h4>Leucine (Leu0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Leu-.png" alt="Leucine -1" style="width:40%">
+                <h4>Leucine (Leu-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Leucine is a nonpolar hydrophobic amino acid that acts as a stimulus for muscle generation. 
+    Its activation also assists in cell growth. Its pKa is 2.36 and 9.6, resulting in a pI of 5.98.</p>
+    <a>Isoleucine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ile2+.png" alt="Isoleucine +2" style="width:60%">
+                <h4>Isoleucine (Ile2+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ile+.png" alt="Isoleucine +1" style="width:60%">
+                <h4>Isoleucine (Ile+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ile0.png" alt="Isoleucine 0" style="width:60%">
+                <h4>Isoleucine (Ile0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Ile-.png" alt="Isoleucine -1" style="width:60%">
+                <h4>Isoleucine (Ile-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Isoleucine is a nonpolar hydrophobic amino acid not made in the body, and the isomer of leucine (which means it has similar pKa values and pI). 
+    It is typically found in fish, meats, eggs, and cheese and its pKa values are 2.37 and 9.6 with a pI of 6.02</p>
+    <a>Phenylalanine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Phe+.png" alt="Phenylalanine +1" style="width:40%">
+                <h4>Phenylalanine (Phe+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Phe0.png" alt="Phenylalanine 0" style="width:40%">
+                <h4>Phenylalanine (Phe0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Phe-.png" alt="Phenylalanine -1" style="width:40%">
+                <h4>Phenylalanine (Phe-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Phenylalanine is a hydrophobic amino acid found in many foods, and is often found in foods thanks to its aromaticity.
+        It is a derivative of alanine and hydrophobic in nature. It mostly adds to stability in any compound and its pKa is 1.83 and 9.13, resulting in a pI of 5.48</p>
+    <a>Tyrosine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Tyr+.png" alt="Tyrosine +1" style="width:60%">
+                <h4>Tyrosine (Tyr+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Tyr0.png" alt="Tyrosine 0" style="width:60%">
+                <h4>Tyrosine (Tyr0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Tyr-.png" alt="Tyrosine -1" style="width:60%">
+                <h4>Tyrosine (Tyr-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+    <p>Tyrosine is a hydrophobic amino acid that is actually made from phenylalanine. 
+        Since the body derives it from phenylalanine, it does not need to be included in the diet, but it can be found in cheese!
+        For the most part it acts as a transmitter for brain chemicals, its pKa values are 2.2 and 9.11 which result in a pI of 5.66.</p>
+    <a>Tryptophan</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Trp+.png" alt="Tryptophan +1" style="width:40%">
+                <h4>Tryptophan (Trp+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Trp0.png" alt="Tryptophan 0" style="width:40%">
+                <h4>Tryptophan (Trp0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Trp-.png" alt="Tryptophan -1" style="width:40%">
+                <h4>Tryptophan (Trp-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+        <p>Tryptophan is a hydrophobic amino acid that needs to be derived from food. It is found in plant or animal based protein/dairy, it's main purpose is to help the body produce serotonin and melatonin.
+        Tyrptophan makes people happy and also aids in sleep and is often used in antidepressants and sleeping pills. 
+        Its pKa values are 2.83 and 9.39, which results in a pI of 5.89</p>
+    <a>Methionine</a>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Met+.png" alt="Methionine +1" style="width:60%">
+                <h4>Methionine (Met+)</h4>
+                <p>Protonated Form</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Met0.png" alt="Methionine 0" style="width:60%">
+                <h4>Methionine (Met0)</h4>
+                <p>Zwitterion</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <img src="../images/AApng/Met-.png" alt="Methionine -1" style="width:60%">
+                <h4>Methionine (Met-)</h4>
+                <p>Deprotonated Form</p>
+            </div>
+        </div>
+    </div>
+        <p>Methionine is a hydrophobic amino acid that acts as an antioxidant for the blood. 
+        It is found in fish, meat, and dairy. It also assists in forming the other amino acid cysteine and contains a sulfur group that helps to form phosolipids.
+        Its pKa values are 2.28 and 9.21, which make a pI of 5.74.</p>
+
+    <!--end amino-area -->
+    <!---page-wrap-End--->
+    <!--search function-->
+    <script>
+        function findString(str) {
+            if (parseInt(navigator.appVersion) < 4) return;
+            var strFound;
+            if (window.find) {
+                strFound = self.find(str);
+                if (!strFound) {
+                    strFound = self.find(str, 0, 1);
+                    while (self.find(str, 0, 1)) continue;
+                }
+            }
+            else if (navigator.appName.indexOf("Microsoft") != -1) {
+
+                if (TRange != null) {
+                    TRange.collapse(false);
+                    strFound = TRange.findText(str);
+                    if (strFound) TRange.select();
+                }
+                if (TRange == null || strFound == 0) {
+                    TRange = self.document.body.createTextRange();
+                    strFound = TRange.findText(str);
+                    if (strFound) TRange.select();
+                }
+            }
+        }
+    </script>
 </body>
 </html>
-        <!--end amino-area -->
-        <!---page-wrap-End--->
-
-        <script>
-            filterSelection("all")
-            function filterSelection(c) {
-                var x, i;
-                x = document.getElementsByClassName("column");
-                if (c == "all") c = "";
-                for (i = 0; i < x.length; i++) {
-                    RemoveClass(x[i], "show");
-                    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
-                }
-            }
-
-            function AddClass(element, name) {
-                var i, arr1, arr2;
-                arr1 = element.className.split(" ");
-                arr2 = name.split(" ");
-                for (i = 0; i < arr2.length; i++) {
-                    if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
-                }
-            }
-
-            function RemoveClass(element, name) {
-                var i, arr1, arr2;
-                arr1 = element.className.split(" ");
-                arr2 = name.split(" ");
-                for (i = 0; i < arr2.length; i++) {
-                    while (arr1.indexOf(arr2[i]) > -1) {
-                        arr1.splice(arr1.indexOf(arr2[i]), 1);
-                    }
-                }
-                element.className = arr1.join(" ");
-            }
-
-
-            // Add active class to the current button (highlight it)
-            var btnContainer = document.getElementById("myBtnContainer");
-            var btns = btnContainer.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function () {
-                    var current = document.getElementsByClassName(" active");
-                    current[0].className = current[0].className.replace("active", " ");
-                    this.className += " active";
-                });
-            }
-            function myFunction() {
-                // Declare variables
-                var input, filter, ul, li, a, i, txtValue;
-                input = document.getElementById('myInput');
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName('li');
-
-                // Loop through all list items, and hide those who don't match the search query
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-
-        </script>
