@@ -26,7 +26,7 @@
 
     <div class="page-wrap">
         <div class="wrap3">
-
+        <!---start information on experiment--->
             <div class="title">
                 <h1>About Experiment:</h1>
             </div>
@@ -78,7 +78,8 @@
             Most professors tend to use amino acids similar in mass, meaning the same number of grams will be used of each.
             If this is not the case - please calculate amount of grams needed of amino acid.
         </p>
-
+        <!---Attempted mini function to return amount of grams needed --->
+        <!---
         <p> Volume of Solution (mL)</p>
         <input id="value3" type="text" />
         <span> + </span>
@@ -88,7 +89,7 @@
         <br />
         <p id="result"> </p>
         <script type="text/javascript" language="javascript" charset="utf-8">
-
+    
             function output() {
                 var value3 = parseInt(document.getElementById('value1').value);
                 var value4 = parseInt(document.getElementById('value2').value);
@@ -97,6 +98,8 @@
                 result = math.toString;
                 document.getElementById('result').innerHTML = result;
         </script>
+        --->
+        <!---end of attempted mini function to return amount of grams needed --->
         <p>
             2) Callibrate the pH meter, then bring the pH of each amino acid solution to 2 using 60 mM HCl. Add 1 mL aliquot of 50 mM NaOH.
         </p>
@@ -117,6 +120,7 @@
         <p>
             If you find yourself lost please click on details for what your spreadsheet should look like:
         </p>
+        <!---spoiler tag of example spreadsheet--->
         <details><img src="../../capstone/website/images/AApng/Table.png" alt="Example Table." style="width:50%; height: 85%" /></details>
 
 
@@ -129,7 +133,7 @@
             one would look at 0.5, 1.5, and 2.5 for the pH values of the unknown amino acid to represent its pKas.
             You can then use these values in the titration tab to create a titration curve, and also put it in the PKA 2 AA tab to receive possible amino acid matches.
         </p>
-
+<!---end info on experiment--->
 
 </body >
 </html >
