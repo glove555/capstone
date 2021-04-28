@@ -64,9 +64,11 @@
             <script type="text/javascript" language="javascript" charset="utf-8">
 
                 function output() {
+                    //get integer inputs from user form
                     var value1 = parseInt(document.getElementById('value1').value);
                     var value2 = parseInt(document.getElementById('value2').value);
                     var result = "";
+                    //check to make sure values are not less than 0
                     if (value1 < 0) {
                         result = "One of your values is less than 0."
                     }
@@ -76,50 +78,66 @@
 
                     var pI = (value1 + value2) / 2;
                     if (pI < 0) {
+                        //basically anything less than 0 will return this
                         result = "Please check values entered, this is not possible pH cannot be less than 0. Please also ensure inputs were numbers!"
                     }
                     else if (pI < 2.5) {
+                        //check for super low pIs
                         result = "Although possible, you are likely not handling an amino acid or there is contamination, the pI is simply too acidic."
                     }
                     else if (pI < 4.7) {
+                        //pI from 2.5 to 4.69
                         result = "Your amino acid is likely glutamic (3.08) or aspartic acid (2.98)."
                     }
                     else if (pI < 5.3) {
+                        //pI from 4.7 to 5.2
                         result = "Your amino acid is likely cysteine (5.15)."
                     }
                     else if (pI < 5.5) {
+                        //pI from 5.3 to 5.49
                         result = "Your amino acid is likely asparagine (5.43)."
                     }
                     else if (pI < 5.7) {
+                        //pI from 5.5 to 5.69
                         result = "Your amino acid is likely glutamine (5.65), threonine (5.6), or tyrosine (5.63)."
                     }
                     else if (pI < 5.8) {
+                        //pI from 5.7 to 5.79
                         result = "Your amino acid is likely methionine (5.71), serine (5.7), or phenylalanine (5.76)."
                     }
                     else if (pI < 5.9) {
+                        //pI from 5.8 to 5.89
                         result = "Your amino acid is likely tryptophan (5.88)."
                     }
                     else if (pI < 6.1) {
+                        //pI from 5.9 to 6.09
                         result = "Your amino acid is likely glycine (6.06), isoleucine (6.04), leucine (6.04), or valine (6.02)."
                     }
                     else if (pI < 6.2) {
+                        //pI from 6.1 to 6.19
                         result = "Your amino acid is likely glycine (6.06) or alanine (6.11)."
                     }
                     else if (pI < 6.4) {
+                        //pI from 6.2 to 6.39
                         result = "Your amino acid is likely proline (6.3)."
                     }
-                    else if (pI = 7.7) {
+                    else if (pI < 7.7) {
+                        //pI from 6.4 to 7.69
                         result = "Your amino acid is likely histidine (7.59)."
                     }
                     else if (pI < 10) {
+                        //pI from 7.7 to 9.99
                         result = "Your amino acid is likely lysine (9.47)."
                     }
                     else if (pI < 11.5) {
+                        //pI from 10 to 11.49
                         result = "Your amino acid is likely arginine (10.76)."
                     }
                     else {
+                        //anything higher than 11.5
                         result = "Your pI is super high or you put nothing in here or something like a letter, please check your numbers again!"
                     }
+                    //return result to html
                     document.getElementById('result').innerHTML = result;
                 }
 
