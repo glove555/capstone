@@ -6,7 +6,13 @@ The purpose of this project is to act as a web app that can find out amino acids
 
 In order to run this webpage statically - a user could download the current repo and be able to use the website off their local machines. However, the webpage will also be available through a web server on https://www.ph2aminoacid.com
 
+In order to use it, there are instructions on the webpage. However, what one would do is:
 
+1) do the titration on their own, come to my website, and put their values in the spreadsheet. 
+2) Then the scientist would check certain concentrations that matched up with pKa values (in the case of the example on the page - 0.5, 1.5, and 1.5)
+3) They would then put those values into the calculator at the bottom of the titration page to get possible amino acid matches
+
+In addition to this, the amino acid page will have information on each of the 20 amino acids (thier typical pKa values, their typical pI values, and common facts along with their different states). All of which is accessible with a search bar for the page to easily find amino acids.
 Work Schedule:
 
 Week 1:
