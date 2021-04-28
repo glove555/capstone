@@ -59,7 +59,7 @@
         </p>
 
 
-        <!--Search form-->
+        <!--Search form get t1 value and do function findString in script-->
         <form id=f1 name="f1" action=""
               onSubmit="if(this.t1.value!=null && this.t1.value!='')
                 findString(this.t1.value);return false">
@@ -674,26 +674,45 @@
     <!--search function-->
     <script>
         function findString(str) {
-            if (parseInt(navigator.appVersion) < 4) return;
+            //check app version of Chrome
+            if (parseInt(navigator.appVersion) < 4){
+                return;
+            }
             var strFound;
+            //if window open...
             if (window.find) {
+                //search for string find of string entered from form
                 strFound = self.find(str);
                 if (!strFound) {
+                    //if not found, make it keep searching until it does
                     strFound = self.find(str, 0, 1);
-                    while (self.find(str, 0, 1)) continue;
+                    while (self.find(str, 0, 1)){
+                        continue;
+                    }
                 }
             }
+            //Microsoft must be done seperately since it has different API
             else if (navigator.appName.indexOf("Microsoft") != -1) {
-
+                //if the text range is not null...
                 if (TRange != null) {
+                    //do not let it collapse and search the text
                     TRange.collapse(false);
                     strFound = TRange.findText(str);
-                    if (strFound) TRange.select();
+                    //select the text whereever string is found
+                    if (strFound){
+                        TRange.select();
+                    }
                 }
+                //if there is no text range or the string is not present
                 if (TRange == null || strFound == 0) {
+                    //create the text range
                     TRange = self.document.body.createTextRange();
+                    //set the string found to that text range
                     strFound = TRange.findText(str);
-                    if (strFound) TRange.select();
+                    //select the text range
+                    if (strFound){
+                        TRange.select();
+                    }
                 }
             }
         }
